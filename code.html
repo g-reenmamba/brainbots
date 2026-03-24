@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HostelSync Warden Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#071e27",
+              "error-container": "#ffdad6",
+              "on-background": "#071e27",
+              "tertiary": "#5f1d00",
+              "primary-container": "#004b87",
+              "on-secondary-fixed": "#002203",
+              "primary-fixed": "#d3e4ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#acf4a4",
+              "primary": "#003461",
+              "tertiary-fixed-dim": "#ffb59a",
+              "on-error": "#ffffff",
+              "surface-dim": "#c7dde9",
+              "surface": "#f3faff",
+              "inverse-on-surface": "#dff4ff",
+              "surface-bright": "#f3faff",
+              "on-tertiary-fixed": "#380d00",
+              "secondary-container": "#acf4a4",
+              "tertiary-container": "#852c00",
+              "surface-container-highest": "#cfe6f2",
+              "on-primary-fixed": "#001c38",
+              "on-secondary": "#ffffff",
+              "outline": "#727781",
+              "outline-variant": "#c2c6d1",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#a3c9ff",
+              "on-primary-container": "#8abcff",
+              "tertiary-fixed": "#ffdbcf",
+              "secondary-fixed-dim": "#91d78a",
+              "surface-variant": "#cfe6f2",
+              "on-secondary-container": "#307231",
+              "surface-container-low": "#e6f6ff",
+              "surface-tint": "#27609d",
+              "surface-container": "#dbf1fe",
+              "on-primary-fixed-variant": "#004882",
+              "secondary": "#2a6b2c",
+              "surface-container-high": "#d5ecf8",
+              "inverse-surface": "#1e333c",
+              "on-secondary-fixed-variant": "#0c5216",
+              "inverse-primary": "#a3c9ff",
+              "on-surface-variant": "#424750",
+              "on-tertiary-fixed-variant": "#802a00",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#ffa27f",
+              "background": "#f3faff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(219, 241, 254, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#dbf1fe]/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_12px_32px_-4px_rgba(7,30,39,0.06)] flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#003461] dark:text-blue-400 active:scale-95 transition-transform cursor-pointer">grid_view</span>
+<h1 class="font-headline font-extrabold text-2xl tracking-tight text-[#003461] dark:text-blue-200">HostelSync</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-headline font-bold text-sm text-[#003461] border-b-2 border-[#003461] py-1" href="#">Dashboard</a>
+<a class="font-headline font-bold text-sm text-[#424750] hover:text-[#003461] transition-colors py-1" href="#">Students</a>
+<a class="font-headline font-bold text-sm text-[#424750] hover:text-[#003461] transition-colors py-1" href="#">Inventory</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white overflow-hidden cursor-pointer active:scale-95 transition-transform">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a male administrative warden in a sharp business suit with a friendly and authoritative expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBsRgMgpONYxUCL4_GymqfeTz0ZA5edLmg9zFjUMhXK5DOUp_UvgQ7mQ2Ftb_uXMQck908YHQb9vaWR2lYg4D1ZSMLKr3Bb3iJCR6YNERKHkfDpx0bxGqsru1L7Vggx3Dka07-1q3KSd3BFA9YEqEcvXZiBUcTCkJKbEV3V5FcsvOPvNsgjl2IhvQyrtIH7dxXHeB-8cok9TdglLswbKbyDmcoADt1XmgfBtxwehLzJS2YAudatWSYk4oyh9ZhhJrBCL_HKYwJSGhR"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Welcome Section -->
+<section class="md:col-span-12 mb-4">
+<h2 class="font-headline text-display-lg font-extrabold text-primary mb-2">Warden's Command Center</h2>
+<p class="text-on-surface-variant font-body">Overview for Block A - Tuesday, Oct 24th</p>
+</section>
+<!-- Attendance Summary Bento Card (Large) -->
+<article class="md:col-span-8 bg-surface-container-lowest p-7 rounded-xl shadow-sm border border-outline-variant/15 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="font-headline text-xl font-bold text-primary">Daily Attendance Status</h3>
+<p class="font-label text-sm text-on-surface-variant uppercase tracking-wider mt-1">Real-time tracking</p>
+</div>
+<div class="bg-secondary-container px-4 py-1 rounded-full">
+<span class="font-label text-xs font-semibold text-on-secondary-container uppercase">Active Session</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div class="bg-surface-container p-5 rounded-xl">
+<p class="font-label text-xs text-on-surface-variant uppercase mb-1">Present</p>
+<p class="font-headline text-3xl font-extrabold text-primary">412</p>
+<div class="h-1.5 w-full bg-outline-variant/20 rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-secondary w-[85%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-high p-5 rounded-xl">
+<p class="font-label text-xs text-on-surface-variant uppercase mb-1">On Leave</p>
+<p class="font-headline text-3xl font-extrabold text-primary">28</p>
+<div class="h-1.5 w-full bg-outline-variant/20 rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-primary w-[15%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-tertiary-container/10 p-5 rounded-xl border border-tertiary-container/20">
+<p class="font-label text-xs text-tertiary uppercase mb-1">Unaccounted</p>
+<p class="font-headline text-3xl font-extrabold text-tertiary">05</p>
+<div class="h-1.5 w-full bg-outline-variant/20 rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-tertiary w-[5%] rounded-full"></div>
+</div>
+</div>
+</div>
+</article>
+<!-- Pending Gate Passes Card -->
+<article class="md:col-span-4 bg-primary text-white p-7 rounded-xl shadow-lg flex flex-col relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-primary-container rounded-full opacity-50 transition-transform group-hover:scale-110"></div>
+<div class="relative z-10 h-full flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-3xl">event_available</span>
+<a class="font-label text-xs uppercase tracking-widest font-bold border-b border-white/40 pb-0.5 hover:border-white transition-all" href="#">View All</a>
+</div>
+<div class="mt-auto">
+<h3 class="font-headline text-4xl font-extrabold mb-1">14</h3>
+<p class="font-body text-primary-fixed text-lg">Pending Gate Passes</p>
+<p class="font-label text-[11px] uppercase tracking-widest mt-4 opacity-70">Review required before 20:00</p>
+</div>
+</div>
+</article>
+<!-- Quick Action: Log Visitor -->
+<section class="md:col-span-12">
+<div class="bg-surface-container-high p-4 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-primary-container p-3 rounded-xl text-white">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Visitor Entry</h4>
+<p class="text-sm text-on-surface-variant font-body">Record a new visitor checking into Block A</p>
+</div>
+</div>
+<button class="w-full md:w-auto px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white font-headline font-bold rounded-full shadow-lg active:scale-95 transition-all">
+                    Log New Visitor
+                </button>
+</div>
+</section>
+<!-- Recent Complaints Section -->
+<article class="md:col-span-12 bg-surface-container-low p-7 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-xl font-bold text-primary">Recent Maintenance Issues</h3>
+<span class="font-label text-xs font-semibold text-on-surface-variant uppercase">Last 24 Hours</span>
+</div>
+<div class="space-y-3">
+<!-- Complaint Item 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex flex-wrap md:flex-nowrap items-center justify-between gap-4 transition-transform hover:translate-x-1 duration-200">
+<div class="flex items-center gap-5 flex-1">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">water_drop</span>
+</div>
+<div>
+<h5 class="font-body font-bold text-on-surface">Room 304 - Tap Leakage</h5>
+<p class="text-sm text-on-surface-variant">Reported by Rahul Sharma • 2h ago</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="bg-tertiary-container/20 text-tertiary px-4 py-1 rounded-full text-xs font-bold font-label uppercase">Open</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">chevron_right</button>
+</div>
+</div>
+<!-- Complaint Item 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex flex-wrap md:flex-nowrap items-center justify-between gap-4 transition-transform hover:translate-x-1 duration-200">
+<div class="flex items-center gap-5 flex-1">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<div>
+<h5 class="font-body font-bold text-on-surface">Mess Hall - Fan Repair</h5>
+<p class="text-sm text-on-surface-variant">Reported by Mess Manager • 5h ago</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="bg-secondary-container/20 text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold font-label uppercase">Resolved</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">chevron_right</button>
+</div>
+</div>
+<!-- Complaint Item 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex flex-wrap md:flex-nowrap items-center justify-between gap-4 transition-transform hover:translate-x-1 duration-200">
+<div class="flex items-center gap-5 flex-1">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">wifi</span>
+</div>
+<div>
+<h5 class="font-body font-bold text-on-surface">2nd Floor - Connectivity Issue</h5>
+<p class="text-sm text-on-surface-variant">Reported by Amit V. • 8h ago</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="bg-surface-dim text-on-surface-variant px-4 py-1 rounded-full text-xs font-bold font-label uppercase">Pending</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">chevron_right</button>
+</div>
+</div>
+</div>
+</article>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-around items-center px-4 pb-4 pt-2 border-t border-[#c2c6d1]/15 z-50 rounded-t-[0.75rem] shadow-[0_-8px_24px_-4px_rgba(7,30,39,0.04)]">
+<button class="flex flex-col items-center justify-center bg-[#dbf1fe] dark:bg-blue-900/40 text-[#003461] dark:text-blue-100 rounded-[0.75rem] px-5 py-2 scale-105 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Work_Sans'] text-[11px] font-medium tracking-wide uppercase mt-1">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#424750] dark:text-slate-500 px-5 py-2 hover:text-[#004b87] transition-colors">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-['Work_Sans'] text-[11px] font-medium tracking-wide uppercase mt-1">Passes</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#424750] dark:text-slate-500 px-5 py-2 hover:text-[#004b87] transition-colors">
+<span class="material-symbols-outlined">bed</span>
+<span class="font-['Work_Sans'] text-[11px] font-medium tracking-wide uppercase mt-1">Rooms</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#424750] dark:text-slate-500 px-5 py-2 hover:text-[#004b87] transition-colors">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-['Work_Sans'] text-[11px] font-medium tracking-wide uppercase mt-1">Mess</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#424750] dark:text-slate-500 px-5 py-2 hover:text-[#004b87] transition-colors">
+<span class="material-symbols-outlined">group_add</span>
+<span class="font-['Work_Sans'] text-[11px] font-medium tracking-wide uppercase mt-1">Visitors</span>
+</button>
+</nav>
+<!-- Floating Action Button (Only for specific contexts, but here for Dashboard interaction) -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-16 h-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform group z-40">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform duration-300">add</span>
+</button>
+</body></html>
